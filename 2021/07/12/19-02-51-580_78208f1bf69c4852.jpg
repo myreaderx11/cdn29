@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="ahrefs-site-verification" content="b21134b1225ebf149e1266990fcc7b2bb3d9812fb4c9cdb1db0e5b103b2be6d2">
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="shortcut icon" href="https://www.sqlservercentral.com/wp-content/uploads/2019/04/favicon.ico" />
+    <link rel="pingback" href="https://www.sqlservercentral.com/xmlrpc.php"/>
+    <title>An Introduction to Power BI &ndash; SQLServerCentral</title>
+
+            <meta name="wp:id" content="3892892" />
+        
+<!-- This site is optimized with the Yoast SEO plugin v11.6 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Introduction Power BI is a collection of software services, apps, and connectors working together. It helps to connect different data sources and get"/>
+<link rel="canonical" href="https://www.sqlservercentral.com/articles/an-introduction-to-power-bi" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="An Introduction to Power BI &ndash; SQLServerCentral" />
+<meta property="og:description" content="Introduction Power BI is a collection of software services, apps, and connectors working together. It helps to connect different data sources and get" />
+<meta property="og:url" content="https://www.sqlservercentral.com/articles/an-introduction-to-power-bi" />
+<meta property="og:site_name" content="SQLServerCentral" />
+<meta property="article:section" content="PowerPivot/PowerView/PowerQuery/PowerBI" />
+<meta property="og:image" content="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-1024x521.png" />
+<meta property="og:image:secure_url" content="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-1024x521.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Introduction Power BI is a collection of software services, apps, and connectors working together. It helps to connect different data sources and get" />
+<meta name="twitter:title" content="An Introduction to Power BI &ndash; SQLServerCentral" />
+<meta name="twitter:site" content="@sqlservercentrl" />
+<meta name="twitter:image" content="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-1024x521.png" />
+<meta name="twitter:creator" content="@sqlservercentrl" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.sqlservercentral.com/#organization","name":"SQLServerCentral","url":"https://www.sqlservercentral.com/","sameAs":["https://twitter.com/sqlservercentrl"],"logo":{"@type":"ImageObject","@id":"https://www.sqlservercentral.com/#logo","url":"https://www.sqlservercentral.com/wp-content/uploads/2019/05/ssc-logo.png","width":60,"height":53,"caption":"SQLServerCentral"},"image":{"@id":"https://www.sqlservercentral.com/#logo"}},{"@type":"WebSite","@id":"https://www.sqlservercentral.com/#website","url":"https://www.sqlservercentral.com/","name":"SQLServerCentral","publisher":{"@id":"https://www.sqlservercentral.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.sqlservercentral.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.sqlservercentral.com/articles/an-introduction-to-power-bi#primaryimage","url":"https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1.png","width":1366,"height":695},{"@type":"WebPage","@id":"https://www.sqlservercentral.com/articles/an-introduction-to-power-bi#webpage","url":"https://www.sqlservercentral.com/articles/an-introduction-to-power-bi","inLanguage":"en-GB","name":"An Introduction to Power BI &ndash; SQLServerCentral","isPartOf":{"@id":"https://www.sqlservercentral.com/#website"},"primaryImageOfPage":{"@id":"https://www.sqlservercentral.com/articles/an-introduction-to-power-bi#primaryimage"},"datePublished":"2021-07-12T00:00:56+00:00","dateModified":"2021-06-30T20:27:04+00:00","description":"Introduction Power BI is a collection of software services, apps, and connectors working together. It helps to connect different data sources and get"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//cdn.rawgit.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//www.sqlservercentral.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="SQLServerCentral &raquo; Feed" href="https://www.sqlservercentral.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="SQLServerCentral &raquo; Comments Feed" href="https://www.sqlservercentral.com/comments/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.sqlservercentral.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<!-- managing ads with Advanced Ads – https://wpadvancedads.com/ --><script>
+					advanced_ads_ready=function(){var fns=[],listener,doc=typeof document==="object"&&document,hack=doc&&doc.documentElement.doScroll,domContentLoaded="DOMContentLoaded",loaded=doc&&(hack?/^loaded|^c/:/^loaded|^i|^c/).test(doc.readyState);if(!loaded&&doc){listener=function(){doc.removeEventListener(domContentLoaded,listener);window.removeEventListener("load",listener);loaded=1;while(listener=fns.shift())listener()};doc.addEventListener(domContentLoaded,listener);window.addEventListener("load",listener)}return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}}();
+			</script><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='wp-block-library-css'  href='https://www.sqlservercentral.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='wp-block-library-css'  href='https://www.sqlservercentral.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-widgets-mini-teaser-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-widgets/css/mini-teaser.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-widgets-mini-teaser-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-widgets/css/mini-teaser.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-bbp-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-bbp/css/ssc-bbp.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-bbp-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-bbp/css/ssc-bbp.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-briefcase-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-briefcase/css/ssc-briefcase.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-briefcase-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-briefcase/css/ssc-briefcase.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-contributions-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-contributions/css/contributions.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-contributions-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-contributions/css/contributions.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-leaderboard-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-leaderboard/css/leaderboard.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-leaderboard-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-leaderboard/css/leaderboard.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-related-forum-topics-top-comments-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-related-forum-topics/css/top-comments.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-related-forum-topics-top-comments-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-related-forum-topics/css/top-comments.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-social-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-social/css/icons.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-social-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-social/css/icons.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-star-ratings-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-star-ratings/css/ssc-star-ratings.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-star-ratings-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-star-ratings/css/ssc-star-ratings.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-syntax-highlighting-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-syntax-highlighting/css/syntax-highlighting.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-syntax-highlighting-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-syntax-highlighting/css/syntax-highlighting.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-syntax-highlighting-legacy-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-syntax-highlighting/css/legacy.min.css?ver=2021-03-04' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-syntax-highlighting-legacy-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-syntax-highlighting/css/legacy.min.css?ver=2021-03-04' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='featherlight-css-css'  href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css?ver=5.1.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='featherlight-css-css'  href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css?ver=5.1.1' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc-lightbox-css-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-lightbox/css/ssc-lightbox.min.css?ver=5.1.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc-lightbox-css-css'  href='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-lightbox/css/ssc-lightbox.min.css?ver=5.1.1' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='bbp-default-css'  href='https://www.sqlservercentral.com/wp-content/plugins/bbpress/templates/default/css/bbpress.css?ver=2.5.14-6684' type='text/css' media='screen' />
+<noscript><link rel='stylesheet' id='bbp-default-css'  href='https://www.sqlservercentral.com/wp-content/plugins/bbpress/templates/default/css/bbpress.css?ver=2.5.14-6684' type='text/css' media='screen' /></noscript>
+
+<link rel='stylesheet' id='bbp-ssc-css'  href='https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/bbpress/bbpress.min.css?ver=2.5.14-6684' type='text/css' media='screen' />
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='gglcptch-css'  href='https://www.sqlservercentral.com/wp-content/plugins/google-captcha/css/gglcptch.css?ver=1.39' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='gglcptch-css'  href='https://www.sqlservercentral.com/wp-content/plugins/google-captcha/css/gglcptch.css?ver=1.39' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='hm_bbpui-css'  href='https://www.sqlservercentral.com/wp-content/plugins/image-upload-for-bbpress/css/bbp-image-upload.css?ver=5.1.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='hm_bbpui-css'  href='https://www.sqlservercentral.com/wp-content/plugins/image-upload-for-bbpress/css/bbp-image-upload.css?ver=5.1.1' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='searchandfilter-css'  href='https://www.sqlservercentral.com/wp-content/plugins/search-filter/style.css?ver=1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='searchandfilter-css'  href='https://www.sqlservercentral.com/wp-content/plugins/search-filter/style.css?ver=1' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='ssc2018-googlefonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600&#038;ver=5.1.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='ssc2018-googlefonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600&#038;ver=5.1.1' type='text/css' media='all' /></noscript>
+
+<link rel='stylesheet' id='ssc2018-stylesheet-css'  href='https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/css/style.css?ver=2021-03-04' type='text/css' media='all' />
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='d4p-bbattachments-css-css'  href='https://www.sqlservercentral.com/wp-content/plugins/gd-bbpress-attachments/css/front.css?ver=3.1_b2302_free' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='d4p-bbattachments-css-css'  href='https://www.sqlservercentral.com/wp-content/plugins/gd-bbpress-attachments/css/front.css?ver=3.1_b2302_free' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='simple-favorites-css'  href='https://www.sqlservercentral.com/wp-content/plugins/favorites/assets/css/favorites.css?ver=2.3.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='simple-favorites-css'  href='https://www.sqlservercentral.com/wp-content/plugins/favorites/assets/css/favorites.css?ver=2.3.1' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='wp-user-avatar-css'  href='https://www.sqlservercentral.com/wp-content/plugins/wp-user-avatar-pro/assets/css/wp-user-avatar.css?ver=4.1.8' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='wp-user-avatar-css'  href='https://www.sqlservercentral.com/wp-content/plugins/wp-user-avatar-pro/assets/css/wp-user-avatar.css?ver=4.1.8' type='text/css' media='all' /></noscript>
+
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id='jcrop-css'  href='https://www.sqlservercentral.com/wp-includes/js/jcrop/jquery.Jcrop.min.css?ver=0.9.12' type='text/css' media='all' />
+<noscript><link rel='stylesheet' id='jcrop-css'  href='https://www.sqlservercentral.com/wp-includes/js/jcrop/jquery.Jcrop.min.css?ver=0.9.12' type='text/css' media='all' /></noscript>
+
+<script type='text/javascript' src='https://www.sqlservercentral.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.sqlservercentral.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' defer src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js?ver=5.1.1'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-lightbox/js/ssc-lightbox.min.js?ver=5.1.1'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/plugins/image-upload-for-bbpress/js/bbp-image-upload.js?ver=5.1.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var favorites_data = {"ajaxurl":"https:\/\/www.sqlservercentral.com\/wp-admin\/admin-ajax.php","nonce":"00a2bc681f","favorite":"Add to briefcase <i class=\"sf-icon-star-empty\"><\/i>","favorited":"Remove from briefcase <i class=\"sf-icon-star-full\"><\/i>","includecount":"","indicate_loading":"","loading_text":"Loading","loading_image":"","loading_image_active":"","loading_image_preload":"","cache_enabled":"1","button_options":{"button_type":"custom","custom_colors":false,"box_shadow":false,"include_count":false,"default":{"background_default":false,"border_default":false,"text_default":false,"icon_default":false,"count_default":false},"active":{"background_active":false,"border_active":false,"text_active":false,"icon_active":false,"count_active":false}},"authentication_modal_content":"<p>Please login to add favorites.<\/p><p><a href=\"#\" data-favorites-modal-close>Dismiss this notice<\/a><\/p>","authentication_redirect":"","dev_mode":"","logged_in":"","user_id":"0","authentication_redirect_url":"https:\/\/www.sqlservercentral.com\/wp-login.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/plugins/favorites/assets/js/favorites.min.js?ver=2.3.1'></script>
+<script type='text/javascript' src='https://www.sqlservercentral.com/wp-includes/js/jcrop/jquery.Jcrop.min.js?ver=0.9.12'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/plugins/wp-user-avatar-pro/assets/js/webcam.js?ver=4.1.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpua_imgloader_vars = {"url":"https:\/\/www.sqlservercentral.com\/wp-admin\/admin-ajax.php","WPUA_URL":"https:\/\/www.sqlservercentral.com\/wp-content\/plugins\/wp-user-avatar-pro\/","WPUA_MEDIA":"false","wpua_webcam":"true","wpua_string":{"file_type_error":"File Type is not valid.","file_type_error_description":"Valid File Type is jpeg, png and gif.","file_size_error":"File Size is too big","file_size_error_description":"File uploading limits:  Size 8.00 MB","no_image":"Oops! Seems you didn't select any image.","no_image_instruction":"It's easy. Click within dotted area.","upload_image":"Upload Image","media_uploader":"Media Uploader","drop_instruction":"Drop image here or click to upload.","control_instruction":"Select your image, crop and save it.","close":"Close","save":"Save Image","capture_image":"Capture Image","webcam_on":"Use Camera","mediamanager_on_title":"Media Manager is turned ON.","mediamanager_on_instruction":"Click within dotted area to choose image from media manager"},"restriction":{"strickly_resize":true,"max_file_size":"8388608","max_file_width":0,"max_file_height":0,"wp_user_avatar_thumbnail_w":false,"wp_user_avatar_thumbnail_h":false}};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/plugins/wp-user-avatar-pro/assets/js/wpua-imgloader.js?ver=4.1.8'></script>
+<link rel='https://api.w.org/' href='https://www.sqlservercentral.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.sqlservercentral.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.sqlservercentral.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" /><meta name="projectnami:version" content="2.1.1" />
+<link rel='shortlink' href='https://www.sqlservercentral.com/?p=3892892' />
+<link rel="alternate" type="application/json+oembed" href="https://www.sqlservercentral.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.sqlservercentral.com%2Farticles%2Fan-introduction-to-power-bi" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.sqlservercentral.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.sqlservercentral.com%2Farticles%2Fan-introduction-to-power-bi&#038;format=xml" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90206-6"></script>
+<script>
+    const sites = [
+        'www.red-gate.com',
+        'www.sqlservercentral.com',
+        'documentation.red-gate.com',
+        'sqlmonitormetrics.red-gate.com'
+    ];
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());  
+     gtag('config', 'UA-90206-6');
+     gtag('config', 'UA-90206-169', { 'linker': { 'domains': sites } });
+</script><script type="text/javascript">
+            /* <![CDATA[ */
+            var gdbbPressAttachmentsInit = {
+                max_files: 10            };
+            /* ]]> */
+        </script>			<style>
+			.avatar_overlays p  {
+ 				background: rgba(0, 0, 0, );
+ 				color: ;
+				}
+			.wpuap_tooltip:hover .wpuap_tooltip_content {
+		    display: inline;
+		    position: absolute;
+		    color: ;
+		    border: 1px solid ;
+		    background: 			}
+
+			.avatar_container [class^=icon-],
+			.avatar_container [class*=" icon-"] {
+			    color:  !important;
+			}
+
+			#ci-modal,.ci_controls {
+			    background-color:  !important;
+			}
+						</style>
+		</head>
+
+<body class="ssc_article-template-default single single-ssc_article postid-3892892" itemscope itemtype="http://schema.org/WebPage" >
+
+<div id="page" class="hfeed site">
+
+    <!-- HEADER -->
+    <header class="site-header band header--primary">
+        <nav>
+            <div class="header--primary__nav__inner">
+                <a href="https://www.sqlservercentral.com/" title="SQLServerCentral" rel="home" class="header--primary__app-logo-container"><img src="https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/images/header/ssc-logo.svg" alt="" /></a>
+                <a href="https://www.sqlservercentral.com/" title="SQLServerCentral" rel="home" class="header--primary__app-name-container "><img src="https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/images/header/ssc.svg" alt="" /></a>
+                <ul class="js-dropdown hide-on-medium">
+                    <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-7"><a href="/articles">Articles</a></li>
+<li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8"><a href="/editorials">Editorials</a></li>
+<li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="/stairways">Stairways</a></li>
+<li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10"><a href="/forums">Forums</a>
+<ul class="sub-menu">
+	<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a title="Top level for all forums" href="/forums">Forums home</a></li>
+	<li id="menu-item-3052410" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3052410"><a title="Threads listed in reverse order by the most recent reply" href="/forums/view/topics-freshness">Active threads</a></li>
+	<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a title="Threads listed in reverse order by the creation date" href="/forums/view/latest-topics">Latest topics</a></li>
+	<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a title="Most replies in the last 24 hours" href="/forums/view/popular">Most popular</a></li>
+	<li id="menu-item-3644583" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3644583"><a href="/totalscores#leaderboard-forum">Leaderboard</a></li>
+</ul>
+</li>
+<li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="/scripts">Scripts</a></li>
+<li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="/questions">QotD</a></li>
+<li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="/books">Books</a></li>
+<li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="https://ask.sqlservercentral.com/">Ask SSC</a></li>
+<li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="/blogs">Blogs</a></li>
+                </ul>
+
+                <span class="header--primary__site-tools">
+                    <ul class="js-dropdown dropdown hide-on-small">
+                                                    <li><a href="https://www.sqlservercentral.com/wp-login.php?action=register">Register</a></li>
+                            <li><a href="https://www.sqlservercentral.com/wp-login.php?redirect_to=https%3A%2F%2Fwww.sqlservercentral.com%2Farticles%2Fan-introduction-to-power-bi">Login</a></li>
+                                            </ul>
+                    <ul>
+                        <li class="hide-on-medium"><a href="/contributions"><span class="icon--edit"></span>Write for us</a></li>
+                        <li class="hide-on-max show-on-medium"><a href="/search" class="header--primary__icon icon--search" title="Search"></a></li>
+                        <li class="hide-on-max show-on-large"><a href="" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                    </ul>
+                </span>
+            </div>
+
+            <ul class="header--primary__menu--mobile js-dropdown">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-7"><a href="/articles">Articles</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8"><a href="/editorials">Editorials</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="/stairways">Stairways</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10"><a href="/forums">Forums</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a title="Top level for all forums" href="/forums">Forums home</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3052410"><a title="Threads listed in reverse order by the most recent reply" href="/forums/view/topics-freshness">Active threads</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a title="Threads listed in reverse order by the creation date" href="/forums/view/latest-topics">Latest topics</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a title="Most replies in the last 24 hours" href="/forums/view/popular">Most popular</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3644583"><a href="/totalscores#leaderboard-forum">Leaderboard</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="/scripts">Scripts</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="/questions">QotD</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="/books">Books</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14"><a href="https://ask.sqlservercentral.com/">Ask SSC</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="/blogs">Blogs</a></li>
+
+                                <li class="menu-item"><a href="/contributions">Write for us</a></li>
+
+                                    <li><a href="https://www.sqlservercentral.com/wp-login.php?action=register">Register</a></li>
+                    <li><a href="https://www.sqlservercentral.com/wp-login.php?redirect_to=https%3A%2F%2Fwww.sqlservercentral.com%2Farticles%2Fan-introduction-to-power-bi">Login</a></li>
+                            </ul>
+        </nav>
+    </header>
+    <!-- /HEADER -->
+
+    <!-- SECONDARY NAV -->
+    <nav class="background-color--grey--1 border-bottom border-color--grey--3 nav-secondary">
+        <div class="band__inner-container border-left border-right border-color--grey--3 padded--none">
+            <form class="search display--inline border-left border-right border-color--grey--3 padded-right--tight float-right" action="https://www.sqlservercentral.com/" method="get">
+                <input type="text" name="s" placeholder="Search..." value=""/>
+                <input type="image" src="https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/images/nav-secondary/search-icon.svg"/>
+            </form>
+        </div>
+    </nav>
+    <!-- /SECONDARY NAV -->
+
+    
+    
+<!-- single.php -->
+    <!-- template-parts/content-single.php -->
+<div class="band">
+    <div class="band__inner-container padded--tight--small grid" itemscope itemtype="http://schema.org/Article" datePublished="">
+
+        <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop="url" content="https://www.sqlservercentral.com/wp-content/uploads/2019/05/ssc-logo.png">
+                <meta itemprop="width" content="60"> <meta itemprop="height" content="53">
+            </div>
+            <meta itemprop="name" content="SQLServerCentral.com">
+        </div>
+
+        <meta itemprop="mainEntityOfPage" content="https://www.sqlservercentral.com/articles/an-introduction-to-power-bi">
+
+        <div class="grid__col grid__col--span-2-of-12 hide-on-small content-single-sidebar-left">
+            
+    <div class="thumbnail-container">
+        <a href="https://www.sqlservercentral.com/articles/an-introduction-to-power-bi" class="link-image flex flex-align--center flex-justify--center"><img src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.svg" alt="" /></a>
+    </div>
+<img class="hidden" itemprop="image" src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.png" alt="" />        </div>
+
+        <div class="grid__col grid__col--span-8-of-12">
+            <div class="padded-h spaced-bottom padded-h--none--small">
+                <h1 class="text--bold" itemprop="name">An Introduction to Power BI</h1>
+                <meta itemprop="headline" content="An Introduction to Power BI">
+                <div class="meta spaced-bottom--tight">
+                    <p class="gamma">
+                        <a href="https://www.sqlservercentral.com/author/sucharita1das" itemprop="url"><span itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Sucharita Das</span></span></a>,
+                        <span itemprop="datePublished"><span itemprop="dateCreated">2021-07-12</span></span>
+                        <meta itemprop="dateModified" content="June 30, 2021">
+                        <br />
+                    </p>
+                </div>
+
+                <div class="content" itemprop="articleBody">
+                    <h2 style="text-align: left;">Introduction</h2>
+<p>Power BI is a collection of software services, apps, and connectors working together. It helps to connect different data sources and get visually immersive and interactive insights from the data. Power BI creates powerful reports to be shared with others, as required. Data may be connected from different sources including files, databases, Azure services, Power Platform, etc.</p>
+<p>If you need an introduction to Power BI, read <a href="https://www.sqlservercentral.com/articles/analyze-azure-cosmos-db-data-using-synapse-link-and-power-bi">Analyze Azure Cosmos DB data using Synapse Link and Power BI – SQLServerCentral</a>. This has general information and a detailed case study on one of the components, named Power BI Desktop.</p>
+<p>In this article, I will discuss the Power BI service. I will explain the step-by-step process for creating a Power BI service and using it to generate a report from an Excel spreadsheet data source.</p>
+<h2>Power BI Service</h2>
+<p>Microsoft's Power BI service is a SaaS (Software-as-a-Service) component of Power BI. It is known as Power BI Online as well. Power BI has five major building blocks: dashboards, reports, workbooks, datasets, and dataflows. These items are organized into workspaces, and they are created based on capacities. I will discuss each of the concepts below.</p>
+<h3>Capacity</h3>
+<p>Capacity represents a set of resources (storage, processor, and memory) used to host and deliver Power BI content. A shared capacity is shared with other Microsoft customers. A dedicated capacity is fully committed to a single customer. By default, workspaces are created on a shared capacity.</p>
+<h3>Workspace</h3>
+<p>A Workspace is a container for different items, like dashboards, reports, workbooks, datasets, and dataflows. There are two types of workspaces in Power BI.</p>
+<ul>
+<li>My workspace: This is my personal workspace. Dashboards and reports can be shared from this workspace.</li>
+<li>Workspaces: This workspace is used to collaborate and share the content among the people of my organization (having email ids in the same organization domain).</li>
+</ul>
+<h3>Dataset</h3>
+<p>A Dataset is a collection of data imported from a source. A single dataset can be used to create many different reports. A dataset can be part of one or more workspaces. Any visualization generated from a dataset can be displayed on multiple dashboards.</p>
+<h3>Dashboard</h3>
+<p>Dashboard is a single canvas that contains zero or more tiles. There are different ways to add tiles in one dashboard. A dashboard can be part of a single workspace. It can be shared with people in different ways. A dashboard can display visualizations from many different datasets and reports.</p>
+<h3>Report</h3>
+<p>A report is one or more pages of visualizations or visuals. All of the visuals come from a single dataset. One report may be associated with multiple dashboards within an workspace.</p>
+<h3>Workbook</h3>
+<p>A workbook is a special type of dataset. When I use an Excel file as a data source, there are two options to load the data in Power BI. I may import or upload the Excel file. If I go for the upload option, then a workbook is created. For the import option, a dataset and dashboard are created.</p>
+<p>The workbook works like an Excel document in Power BI. It is possible to select a subset of the sheet and pin it to a dashboard.</p>
+<h3>Dataflow</h3>
+<p>A Dataflow helps to create reusable transformation logic on the source data that can be shared by many datasets and reports inside Power BI. Underlying data elements are reusable. So, Power BI Desktop and the Power BI Service may use the data and the business logic from the dataflow multiple times for creating datasets, reports, and dashboards.</p>
+<p>Dataflows are only created and managed in workspaces , not in 'My workspace'. Dataflows are stored as entities in the Common Data Model (CDM) in Azure Data Lake Storage Gen2.</p>
+<h2 style="text-align: left;">Implementation</h2>
+<p>I will first create a Power BI account. After logging into the Power BI service, I will connect to an Excel data source and generate reports from the data source. Also, I will discuss the different features of Power BI service. I will create a report in Power BI Desktop and then will publish that report to the Power BI service.</p>
+<p>To create a Power BI account, I need an email address provided by the organization I am working with. The email address created in a specific organization domain, is known as an organizational email id. Microsoft Power BI is designed to be used by people within a company. So, all the users having the email addresses created in the same domain of a company may be visible to each other and the users can share the work with their colleagues working in the same company. Email addresses created from free services, like outlook.com, are known as personal email ids. Personal email ids cannot be used to create a Power BI account.</p>
+<h3 style="text-align: left;">Power BI Home Page</h3>
+<p>I go to the Power BI home page, <a href="https://powerbi.microsoft.com/en-us/">Data Visualization | Microsoft Power BI</a>. I create a new free account by pressing the 'Start free' button. I use my organizational email id to create the account.</p>
+<p>Once logged in, I press the link for the Power BI portal on the top bar of the web page.</p>
+<p><img class="alignnone size-large wp-image-3894475" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-1024x521.png" data-lazy-load alt="" width="1024" height="521" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-1024x521.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-300x153.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1-768x391.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI1.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3 style="text-align: left;">My workspace</h3>
+<p>I click on the My workspace link on the left panel. Here, I need to add a new content to start working. I press on the Add Content button in My workspace.</p>
+<p><img class="alignnone size-large wp-image-3894477" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI2-1024x491.png" data-lazy-load alt="" width="1024" height="491" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI2-1024x491.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI2-300x144.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI2-768x368.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI2.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3 style="text-align: left;">Get data from file</h3>
+<p>In the next screen, there are a few options available to get data. I may create new content from the existing files and databases. Also, I have an option to get data from the content already published by other people within the same organization. I press the Get button for Files.</p>
+<p>Note: In the Get Data page, there is a link given for downloading the Power BI Desktop to my local machine.</p>
+<p><img class="alignnone size-large wp-image-3894478" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI3-1024x490.png" data-lazy-load alt="" width="1024" height="490" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI3-1024x490.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI3-300x143.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI3-768x367.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI3.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>File location</h3>
+<p>In the next screen, I need to choose the source for the data file. I may select the file from my machine, OneDrive, or SharePoint. I click on the Local File icon and select an Excel document from my local folder.</p>
+<p><img class="alignnone size-large wp-image-3894479" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI4-1024x488.png" data-lazy-load alt="" width="1024" height="488" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI4-1024x488.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI4-300x143.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI4-768x366.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI4.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Connect to Excel workbook</h3>
+<p>After selecting the Excel file, I have two choices. I may import the file to create a dataset or upload the file as an workbook.</p>
+<p>For now, I click on the Import button.</p>
+<p><img class="alignnone size-large wp-image-3894480" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI5-1024x493.png" data-lazy-load alt="" width="1024" height="493" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI5-1024x493.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI5-300x144.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI5-768x369.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI5.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Dataset and Dashboard</h3>
+<p>I am back to My workspace. Here, one dataset and one dashboard are created for the imported Excel document.</p>
+<p>I click on the dataset.</p>
+<p><img class="alignnone size-large wp-image-3894481" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI6-1024x490.png" data-lazy-load alt="" width="1024" height="490" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI6-1024x490.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI6-300x143.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI6-768x367.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI6.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Operations on the dataset</h3>
+<p>I have two options to work on the dataset. I may create a report or analyze the data in an Excel file. I press the button for creating a report from the dataset.</p>
+<p><img class="alignnone size-large wp-image-3894482" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI7-1024x495.png" data-lazy-load alt="" width="1024" height="495" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI7-1024x495.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI7-300x145.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI7-768x371.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI7.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Create a report</h3>
+<p>I am in the Report Editor window now. There are many different choices to create a report.</p>
+<p>I select Country and summation of Gross Sales from the Fields window and select the clustered column chart from the Visualization window. I may filter some records of the dataset in the Filters window. The column chart is now drawn where each column contains the total Gross Sales value for each country as available in the dataset. From the File menu, I save the report.</p>
+<p><img class="alignnone size-large wp-image-3894486" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI8-1024x497.png" data-lazy-load alt="" width="1024" height="497" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI8-1024x497.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI8-300x146.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI8-768x373.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI8.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Open the report</h3>
+<p>The report is now available in My workspace. I open the report from there. I may pin the report to a new or existing dashboard. Also, I may share the report with others in different ways.</p>
+<p><img class="alignnone size-large wp-image-3894487" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI9-1024x496.png" data-lazy-load alt="" width="1024" height="496" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI9-1024x496.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI9-300x145.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI9-768x372.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI9.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Operations on Dashboard</h3>
+<p>I go the Dashboard created for the imported Excel document. There is a tile present for the Excel document. If I click on this, the report editor opens where I may create report from the underlying dataset.</p>
+<p>I click on 'Add a tile' menu item. A pop-up window opens with four types of tiles to be created: Web content, image, text box, and video. I click on Text box and add some text. Now, the text box tile is also added to the dashboard beside the Excel tile.</p>
+<p><img class="alignnone size-large wp-image-3894488" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI10-1024x493.png" data-lazy-load alt="" width="1024" height="493" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI10-1024x493.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI10-300x144.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI10-768x369.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI10.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Q &amp; A and tiles in the Dashboard</h3>
+<p>At the top of the Dashboard, there is a Q&amp;A section. Here, it is written 'Ask a question about your data'. Power BI Q&amp;A is free and available to all users. It allows the users to ask natural language questions about the dataset and get answers in the form of visuals.</p>
+<p>I click on the Q&amp;A button.</p>
+<p><img class="alignnone size-large wp-image-3894489" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI11-1024x499.png" data-lazy-load alt="" width="1024" height="499" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI11-1024x499.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI11-300x146.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI11-768x374.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI11.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Q &amp; A result data</h3>
+<p>I may write a question here or select a question from the suggestions given. I select a suggested question: total sales over time. The result is generated in the form of a visual where the total sales value is plotted against the timeline.</p>
+<p>I click on the 'Pin visual' link.</p>
+<p><img class="alignnone size-large wp-image-3894490" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI12-1024x497.png" data-lazy-load alt="" width="1024" height="497" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI12-1024x497.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI12-300x146.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI12-768x373.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI12.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Pin to Dashboard</h3>
+<p>A pop-up window opens where I may select a new Dashboard or an exiting one to pin the visual. I pin the report to an existing Dashboard.</p>
+<p><img class="alignnone size-large wp-image-3894491" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI13-1024x499.png" data-lazy-load alt="" width="1024" height="499" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI13-1024x499.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI13-300x146.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI13-768x374.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI13.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>The Dashboard</h3>
+<p>I return to the Dashboard again. The report created from the dataset earlier and the report generated through Q&amp;A both are pinned to this Dashboard now.</p>
+<p><img class="alignnone size-large wp-image-3894493" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI15-1024x500.png" data-lazy-load alt="" width="1024" height="500" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI15-1024x500.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI15-300x146.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI15-768x375.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI15.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Menu items in My workspace</h3>
+<p>In My workspace, I click on the New button. A pop-up window opens with a few options. I may start creating report, dashboard, dataset, etc. from here. If I click on Paginated Report, I will be redirected to Power BI Report Builder where the paginated report may be created and later may be shared with Power BI service.</p>
+<p>I click on the 'Upload a file' option.</p>
+<p><img class="alignnone size-large wp-image-3894509" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI16-1024x491.png" data-lazy-load alt="" width="1024" height="491" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI16-1024x491.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI16-300x144.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI16-768x368.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI16.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Upload a file</h3>
+<p>I select an Excel file from my local drive and click on the Upload button. If I choose any file other than Excel workbook (for example, CSV file), then I can only import the file to Power BI. The Upload option is available only for Excel workbooks.</p>
+<h3><img class="alignnone size-large wp-image-3894828" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI21-1024x514.png" data-lazy-load alt="" width="1024" height="514" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI21-1024x514.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI21-300x151.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI21-768x386.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI21.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></h3>
+<h3>Workbook</h3>
+<p>The workbook is created and available in My workspace. I click on it.</p>
+<p><img class="alignnone size-large wp-image-3894518" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI17-1024x493.png" data-lazy-load alt="" width="1024" height="493" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI17-1024x493.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI17-300x145.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI17-768x370.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI17.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Details of workbook</h3>
+<p>The workbook data is shown in Excel Online. I may pin the entire data or some filtered data to any Dashboard from here. Also, there is an option to reload the data from the source as and when required.</p>
+<p><img class="alignnone size-large wp-image-3894520" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI19-1024x496.png" data-lazy-load alt="" width="1024" height="496" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI19-1024x496.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI19-300x145.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI19-768x372.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI19.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Items from Power BI Desktop</h3>
+<p>Now I open Power BI Desktop from my local machine. I create a report from an Excel file present in my local drive.  Then, I press the Publish button to publish the report online to the Power BI Service.</p>
+<p><img class="alignnone size-large wp-image-3894901" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI22-1024x547.png" data-lazy-load alt="" width="1024" height="547" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI22-1024x547.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI22-300x160.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI22-768x410.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI22.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Save the file</h3>
+<p>Once I press the Publish button, I need to first save the file. I give a name and the extension for the Power BI file is .pbx.</p>
+<p><img class="alignnone size-large wp-image-3894911" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI23-1024x619.png" data-lazy-load alt="" width="1024" height="619" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI23-1024x619.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI23-300x181.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI23-768x464.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI23.png 1270w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Select destination</h3>
+<p>I need to select a destination for publishing the report to Power BI service. I double-click on My workspace as listed below. Publish to Power BI is successful.</p>
+<p><img class="alignnone size-large wp-image-3894912" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI24-1024x546.png" data-lazy-load alt="" width="1024" height="546" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI24-1024x546.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI24-300x160.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI24-768x409.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI24.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>Report and dataset in My workspace</h3>
+<p>The report and the related dataset from Power BI Desktop, once published, are now available in My workspace. I may work on these items or may share with others, as required.</p>
+<h2><img class="alignnone size-large wp-image-3894915" src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8v///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI26-1024x495.png" data-lazy-load alt="" width="1024" height="495" data-srcset="https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI26-1024x495.png 1024w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI26-300x145.png 300w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI26-768x371.png 768w, https://www.sqlservercentral.com/wp-content/uploads/2021/06/PowerBI26.png 1366w" sizes="(max-width: 1024px) 100vw, 1024px" /></h2>
+<h2>Conclusion</h2>
+<p>Power BI service is a very easy-to-use and powerful tool to generate valuable insights from data taken from various sources. Employees in the same organization may work and share the content with their colleagues through workspaces. It is possible to create report in Power BI Desktop and Power BI Report Builder and then publish the reports to the Power BI Service so that the report can be shared with the required people.</p>
+                </div>
+
+                                                    
+                                    
+<ul class="ssc-books-links">
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+
+                
+                                                    
+                                                    
+                                                    
+            </div>
+        </div>
+
+        <div class="grid__col grid__col--span-2-of-12 content-single-sidebar">
+            <div class="sidebar">
+    <aside class="sidebar__widget sidebar__widget--advads_ad_widget-4 sqlse-widget clearfix"><a href="https://www.red-gate.com/hub/community-circle"><img   src='https://www.sqlservercentral.com/wp-content/uploads/2020/07/sidebar-community-circle.png' alt=''  width="100%"  style="max-width:100%;"/></a></aside></div>            <!-- template-parts/content-single-sidebar-meta.php -->
+
+    <div class="spaced-bottom">
+        
+        <div data-target="ssc-visitor-counter">
+            <!-- Target for ssc-visitor-counter.js, which dynamically injects
+            right here visitor stats for the current post or page. -->
+        </div>
+    </div>
+
+    <div class="spaced-bottom">
+        <h2 class="gamma">Rate</h2>
+        
+<div class="ssc-star-rating ssc-star-rating--interactive" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" data-target="ssc-star-rating" data-post="3892892">
+
+            <meta itemprop="ratingValue" content="5" />
+        <meta itemprop="ratingCount" content="2" />
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                    </div>
+
+        
+                    <div class="ssc-star-rating__vote" hidden style="display: none;">
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                            </div>
+            </div>
+
+            <p class="ssc-star-rating__stats">
+            <span data-target="ssc-star-rating-score">5</span>
+            (<span data-target="ssc-star-rating-count">2</span>)
+        </p>
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/an-introduction-to-power-bi">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+    </div>
+
+    <div class="spaced-bottom">
+        
+<!-- template-parts/ssc-social-icons.php -->
+<h2 class="gamma">Share</h2>
+<ul class="sharing list--horizontal">
+            <li><a class="sharing__link sharing__link--email" title="Email" target="" href="mailto:?subject=Article on https://www.sqlservercentral.com: An Introduction to Power BI&body=I found this great article on https://www.sqlservercentral.com.%0D%0A%0D%0A
+It's called An Introduction to Power BI.%0D%0A%0D%0A
+You can find it here http://www.sqlservercentral.com/articles/an-introduction-to-power-bi."></a></li>
+            <li><a class="sharing__link sharing__link--facebook" title="Share on Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi&quote=An Introduction to Power BI"></a></li>
+            <li><a class="sharing__link sharing__link--twitter" title="Tweet" target="_blank" href="https://twitter.com/intent/tweet?source=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi&text=An Introduction to Power BI:%20http://www.sqlservercentral.com/articles/an-introduction-to-power-bi"></a></li>
+            <li><a class="sharing__link sharing__link--linked-in" title="Share on LinkedIn" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi&title=An Introduction to Power BI&summary=Introduction Power BI is a collection of software services, apps, and connectors working together. It helps to&source=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi"></a></li>
+            <li><a class="sharing__link sharing__link--print" title="Print" target="" href="javascript:window.print && window.print();"></a></li>
+    </ul>
+<!-- / template-parts/ssc-social-icons.php -->
+    </div>
+
+
+
+        <div class="post__tags spaced-bottom">
+            <h2 class="gamma">Categories</h2>
+            <ul class="list--bare">
+                                                        <li><a href="https://www.sqlservercentral.com/categories/powerbi" class="label background-color--blue--1 color--blue--8">PowerBI</a></li>
+                                                        <li><a href="https://www.sqlservercentral.com/categories/powerpivot-powerview-powerquery-powerbi" class="label background-color--blue--1 color--blue--8">PowerPivot/PowerView/PowerQuery/PowerBI</a></li>
+                            </ul>
+        </div>
+    
+
+<meta itemprop="keywords" content="PowerBI, PowerPivot/PowerView/PowerQuery/PowerBI">
+
+<!-- / template-parts/content-single-sidebar-meta.php -->
+        </div>
+    </div>
+</div>
+
+<!-- template-parts/content-single-meta.php -->
+<div class="band content-single-meta">
+    <div class="band__inner-container padded--tight--small padded-top--none grid">
+        <div class="grid__row spaced-bottom">
+            <div class="grid__col grid__col--span-10-of-12 grid__col--push-2-of-12">
+                <div class="padded-left padded-h--none--small clearfix">
+
+                                            <p><a href="https://www.sqlservercentral.com/forums/topic/an-introduction-to-power-bi"><strong>Join the discussion and add your comment</strong></a></p>                    
+                                            
+        <div data-target="ssc-related-forum-topics-top-comments">
+            <!-- Target for ssc-related-forum-topics/top-comments.js. -->
+        </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="grid__row hide-on-small">
+            <div class="grid__col grid__col--span-10-of-12 grid__col--push-2-of-12">
+                <div class="padded-left padded-h--none--small clearfix">
+
+                                            <div class="grid__col grid__col--span-3-of-12">
+                            
+<!-- template-parts/ssc-social-icons.php -->
+<h2 class="gamma">Share</h2>
+<ul class="sharing list--horizontal">
+            <li><a class="sharing__link sharing__link--email" title="Email" target="" href="mailto:?subject=Article on https://www.sqlservercentral.com: An Introduction to Power BI&body=I found this great article on https://www.sqlservercentral.com.%0D%0A%0D%0A
+It's called An Introduction to Power BI.%0D%0A%0D%0A
+You can find it here http://www.sqlservercentral.com/articles/an-introduction-to-power-bi."></a></li>
+            <li><a class="sharing__link sharing__link--facebook" title="Share on Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi&quote=An Introduction to Power BI"></a></li>
+            <li><a class="sharing__link sharing__link--twitter" title="Tweet" target="_blank" href="https://twitter.com/intent/tweet?source=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi&text=An Introduction to Power BI:%20http://www.sqlservercentral.com/articles/an-introduction-to-power-bi"></a></li>
+            <li><a class="sharing__link sharing__link--linked-in" title="Share on LinkedIn" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi&title=An Introduction to Power BI&summary=Introduction Power BI is a collection of software services, apps, and connectors working together. It helps to&source=http://www.sqlservercentral.com/articles/an-introduction-to-power-bi"></a></li>
+            <li><a class="sharing__link sharing__link--print" title="Print" target="" href="javascript:window.print && window.print();"></a></li>
+    </ul>
+<!-- / template-parts/ssc-social-icons.php -->
+                        </div>
+                    
+                                            <div class="grid__col grid__col--span-3-of-12">
+                            <h2 class="gamma">Rate</h2>
+                            
+<div class="ssc-star-rating ssc-star-rating--interactive" data-target="ssc-star-rating" data-post="3892892">
+
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                    </div>
+
+        
+                    <div class="ssc-star-rating__vote" hidden style="display: none;">
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                                                        <span class="ssc-star-rating__star ssc-star-rating__star--vote">★</span>
+                            </div>
+            </div>
+
+            <p class="ssc-star-rating__stats">
+            <span data-target="ssc-star-rating-score">5</span>
+            (<span data-target="ssc-star-rating-count">2</span>)
+        </p>
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/an-introduction-to-power-bi">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+                        </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / template-parts/content-single-meta.php -->
+
+
+<!-- template-parts/ssc-related-content-list.php -->
+<div class="band border-top border-color--grey--3 related-content">
+    <div class="band__inner-container grid">
+        <div class="grid__row">
+            <div class="grid__col grid__col--span-10-of-12 grid__col--push-2-of-12">
+                <h1 class="text--normal padded-h padded-h--none--small spaced-bottom">Related content</h1>
+            </div>
+        </div>
+
+        
+<!-- template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/content-loop.php -->
+<article class="grid__row spaced-bottom post-listing__post">
+
+        <div class="grid__col grid__col--span-2-of-12">
+        
+    <div class="thumbnail-container">
+        <a href="https://www.sqlservercentral.com/articles/analyze-azure-cosmos-db-data-using-synapse-link-and-power-bi" class="link-image flex flex-align--center flex-justify--center"><img src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.svg" alt="" /></a>
+    </div>
+    </div>
+
+    
+    <div class="grid__col grid__col--span-8-of-12">
+        <div class="padded-h padded-h--none--small">
+            <h1 class="beta">
+                                    <a href="https://www.sqlservercentral.com/articles/analyze-azure-cosmos-db-data-using-synapse-link-and-power-bi">Analyze Azure Cosmos DB data using Synapse Link and Power BI</a>
+                            </h1>
+
+                            <div class="post-listing__taxonomies">
+                    <ul class="post-listing__author list--horizontal list--bare display--inline">
+                        <li>by <a href="https://www.sqlservercentral.com/author/sucharita1das" itemprop="url"><span itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Sucharita Das</span></span></a></li>
+                    </ul>
+
+                                            <ul class="post-listing__sources list--horizontal list--bare display--inline">
+                            <li><a href="https://www.sqlservercentral.com">SQLServerCentral</a></li>
+                        </ul>
+                    
+                                            <ul class="post-listing__categories list--horizontal list--bare display--inline">
+                                                            <li><a href="https://www.sqlservercentral.com/categories/azure-sql-data-warehouse-asdw">Azure Synapse (formerly Azure SQL Data Warehouse)</a></li>
+                                                            <li><a href="https://www.sqlservercentral.com/categories/powerpivot-powerview-powerquery-powerbi">PowerPivot/PowerView/PowerQuery/PowerBI</a></li>
+                                                    </ul>
+                    
+                                    </div>
+            
+            <p>Introduction In my last article, Using Azure Synapse Link for Azure Cosmos DB , I discussed creating the Synapse Link to query data present in Azure Cosmos DB from my Synapse workspace. Here, I will create a new database in the serverless SQL pool and create views based on the Cosmos DB JSON files. Then, I will [&hellip;]</p>
+
+                            
+<ul class="ssc-books-links">
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+
+            
+        </div>
+    </div>
+
+                        <div class="grid__col grid__col--span-2-of-12">
+                
+<div class="ssc-star-rating">
+
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                    </div>
+
+        
+            </div>
+
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/analyze-azure-cosmos-db-data-using-synapse-link-and-power-bi">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+
+                <p class="spaced-bottom--none"><span itemprop="dateCreated">2021-01-12</span></p>
+                                    <p class="spaced-bottom--none">1,279 reads</p>
+                                <ul class="list--bare list--horizontal spaced-bottom--none">
+                    <li class="spaced-right--tight"><a href="https://www.sqlservercentral.com/forums/topic/analyze-azure-cosmos-db-data-using-synapse-link-and-power-bi">Discuss</a></li>
+                </ul>
+            </div>
+            
+</article>
+
+<!-- / template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/content-loop.php -->
+<article class="grid__row spaced-bottom post-listing__post">
+
+        <div class="grid__col grid__col--span-2-of-12">
+        
+    <div class="thumbnail-container">
+        <a href="https://www.sqlservercentral.com/articles/an-introduction-to-azure-synapse-analytics-workspace" class="link-image flex flex-align--center flex-justify--center"><img src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.svg" alt="" /></a>
+    </div>
+    </div>
+
+    
+    <div class="grid__col grid__col--span-8-of-12">
+        <div class="padded-h padded-h--none--small">
+            <h1 class="beta">
+                                    <a href="https://www.sqlservercentral.com/articles/an-introduction-to-azure-synapse-analytics-workspace">An Introduction to Azure Synapse Analytics Workspace</a>
+                            </h1>
+
+                            <div class="post-listing__taxonomies">
+                    <ul class="post-listing__author list--horizontal list--bare display--inline">
+                        <li>by <a href="https://www.sqlservercentral.com/author/sucharita1das" itemprop="url"><span itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Sucharita Das</span></span></a></li>
+                    </ul>
+
+                                            <ul class="post-listing__sources list--horizontal list--bare display--inline">
+                            <li><a href="https://www.sqlservercentral.com">SQLServerCentral</a></li>
+                        </ul>
+                    
+                    
+                                    </div>
+            
+            <p>Introduction The Azure Synapse workspace is in preview mode as of July 2020. The workspace brings together enterprise data warehousing and big data analytics. This workspace has the best of the SQL technologies used in enterprise data warehousing, Spark technologies used in big data analytics, and pipelines to orchestrate activities and data movement. Here, I [&hellip;]</p>
+
+                            
+<ul class="ssc-books-links">
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+
+            
+        </div>
+    </div>
+
+                        <div class="grid__col grid__col--span-2-of-12">
+                
+<div class="ssc-star-rating">
+
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                    </div>
+
+        
+            </div>
+
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/an-introduction-to-azure-synapse-analytics-workspace">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+
+                <p class="spaced-bottom--none"><span itemprop="dateCreated">2020-08-24</span></p>
+                                    <p class="spaced-bottom--none">4,907 reads</p>
+                                <ul class="list--bare list--horizontal spaced-bottom--none">
+                    <li class="spaced-right--tight"><a href="https://www.sqlservercentral.com/forums/topic/an-introduction-to-azure-synapse-analytics-workspace">Discuss</a></li>
+                </ul>
+            </div>
+            
+</article>
+
+<!-- / template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/content-loop.php -->
+<article class="grid__row spaced-bottom post-listing__post">
+
+        <div class="grid__col grid__col--span-2-of-12">
+        
+    <div class="thumbnail-container">
+        <a href="https://www.sqlservercentral.com/articles/access-external-data-from-azure-synapse-analytics-using-polybase" class="link-image flex flex-align--center flex-justify--center"><img src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.svg" alt="" /></a>
+    </div>
+    </div>
+
+    
+    <div class="grid__col grid__col--span-8-of-12">
+        <div class="padded-h padded-h--none--small">
+            <h1 class="beta">
+                                    <a href="https://www.sqlservercentral.com/articles/access-external-data-from-azure-synapse-analytics-using-polybase">Access external data from Azure Synapse Analytics using Polybase</a>
+                            </h1>
+
+                            <div class="post-listing__taxonomies">
+                    <ul class="post-listing__author list--horizontal list--bare display--inline">
+                        <li>by <a href="https://www.sqlservercentral.com/author/sucharita1das" itemprop="url"><span itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Sucharita Das</span></span></a></li>
+                    </ul>
+
+                                            <ul class="post-listing__sources list--horizontal list--bare display--inline">
+                            <li><a href="https://www.sqlservercentral.com">SQLServerCentral</a></li>
+                        </ul>
+                    
+                                            <ul class="post-listing__categories list--horizontal list--bare display--inline">
+                                                            <li><a href="https://www.sqlservercentral.com/categories/azure-sql-data-warehouse-asdw">Azure Synapse (formerly Azure SQL Data Warehouse)</a></li>
+                                                            <li><a href="https://www.sqlservercentral.com/categories/etl-extract-transform-and-load">ETL (Extract Transform and Load)</a></li>
+                                                            <li><a href="https://www.sqlservercentral.com/categories/polybase">PolyBase</a></li>
+                                                    </ul>
+                    
+                                    </div>
+            
+            <p>Learn how you can use Polybase technology in Azure Synapse to load data into your warehouse.</p>
+
+                            
+<ul class="ssc-books-links">
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+
+            
+        </div>
+    </div>
+
+                        <div class="grid__col grid__col--span-2-of-12">
+                
+<div class="ssc-star-rating">
+
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full ">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half ">★</span>
+                    </div>
+
+        
+            </div>
+
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/access-external-data-from-azure-synapse-analytics-using-polybase">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+
+                <p class="spaced-bottom--none"><span itemprop="dateCreated">2020-07-28</span></p>
+                                    <p class="spaced-bottom--none">8,656 reads</p>
+                                <ul class="list--bare list--horizontal spaced-bottom--none">
+                    <li class="spaced-right--tight"><a href="https://www.sqlservercentral.com/forums/topic/access-external-data-from-azure-synapse-analytics-using-polybase">Discuss</a></li>
+                </ul>
+            </div>
+            
+</article>
+
+<!-- / template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/content-loop.php -->
+<article class="grid__row spaced-bottom post-listing__post">
+
+        <div class="grid__col grid__col--span-2-of-12">
+        
+    <div class="thumbnail-container">
+        <a href="https://www.sqlservercentral.com/articles/loading-data-in-azure-synapse-analytics-using-azure-data-factory" class="link-image flex flex-align--center flex-justify--center"><img src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.svg" alt="" /></a>
+    </div>
+    </div>
+
+    
+    <div class="grid__col grid__col--span-8-of-12">
+        <div class="padded-h padded-h--none--small">
+            <h1 class="beta">
+                                    <a href="https://www.sqlservercentral.com/articles/loading-data-in-azure-synapse-analytics-using-azure-data-factory">Loading data in Azure Synapse Analytics using Azure Data Factory</a>
+                            </h1>
+
+                            <div class="post-listing__taxonomies">
+                    <ul class="post-listing__author list--horizontal list--bare display--inline">
+                        <li>by <a href="https://www.sqlservercentral.com/author/sucharita1das" itemprop="url"><span itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Sucharita Das</span></span></a></li>
+                    </ul>
+
+                                            <ul class="post-listing__sources list--horizontal list--bare display--inline">
+                            <li><a href="https://www.sqlservercentral.com">SQLServerCentral</a></li>
+                        </ul>
+                    
+                    
+                                    </div>
+            
+            <p>This article shows a basic Azure Data Factory pipeline to load data into Azure Synapse.</p>
+
+                            
+<ul class="ssc-books-links">
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+
+            
+        </div>
+    </div>
+
+                        <div class="grid__col grid__col--span-2-of-12">
+                
+<div class="ssc-star-rating">
+
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                    </div>
+
+        
+            </div>
+
+            <p class="ssc-star-rating__stats">
+            <span data-target="ssc-star-rating-score">5</span>
+            (<span data-target="ssc-star-rating-count">1</span>)
+        </p>
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/loading-data-in-azure-synapse-analytics-using-azure-data-factory">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+
+                <p class="spaced-bottom--none"><span itemprop="dateCreated">2020-07-20</span></p>
+                                    <p class="spaced-bottom--none">6,000 reads</p>
+                                <ul class="list--bare list--horizontal spaced-bottom--none">
+                    <li class="spaced-right--tight"><a href="https://www.sqlservercentral.com/forums/topic/loading-data-in-azure-synapse-analytics-using-azure-data-factory">Discuss</a></li>
+                </ul>
+            </div>
+            
+</article>
+
+<!-- / template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/ssc-related-content-list-item.php -->
+
+<!-- template-parts/content-loop.php -->
+<article class="grid__row spaced-bottom post-listing__post">
+
+        <div class="grid__col grid__col--span-2-of-12">
+        
+    <div class="thumbnail-container">
+        <a href="https://www.sqlservercentral.com/articles/loading-data-in-azure-synapse-using-copy" class="link-image flex flex-align--center flex-justify--center"><img src="https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-post-thumbnails/images/technical-article.svg" alt="" /></a>
+    </div>
+    </div>
+
+    
+    <div class="grid__col grid__col--span-8-of-12">
+        <div class="padded-h padded-h--none--small">
+            <h1 class="beta">
+                                    <a href="https://www.sqlservercentral.com/articles/loading-data-in-azure-synapse-using-copy">Loading data in Azure Synapse using Copy</a>
+                            </h1>
+
+                            <div class="post-listing__taxonomies">
+                    <ul class="post-listing__author list--horizontal list--bare display--inline">
+                        <li>by <a href="https://www.sqlservercentral.com/author/sucharita1das" itemprop="url"><span itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Sucharita Das</span></span></a></li>
+                    </ul>
+
+                                            <ul class="post-listing__sources list--horizontal list--bare display--inline">
+                            <li><a href="https://www.sqlservercentral.com">SQLServerCentral</a></li>
+                        </ul>
+                    
+                                            <ul class="post-listing__categories list--horizontal list--bare display--inline">
+                                                            <li><a href=""></a></li>
+                                                    </ul>
+                    
+                                    </div>
+            
+            <p>Learn how to create a Synapse resource and upload data using the COPY command.</p>
+
+                            
+<ul class="ssc-books-links">
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+
+            
+        </div>
+    </div>
+
+                        <div class="grid__col grid__col--span-2-of-12">
+                
+<div class="ssc-star-rating">
+
+    
+    <div class="ssc-star-rating__inner">
+
+        
+        <div class="ssc-star-rating__average">
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                                            <span class="ssc-star-rating__star ssc-star-rating__star--full  ssc-star-rating__star--active">★</span>
+                <span class="ssc-star-rating__star ssc-star-rating__star--half  ssc-star-rating__star--active">★</span>
+                    </div>
+
+        
+            </div>
+
+            <p class="ssc-star-rating__stats">
+            <span data-target="ssc-star-rating-score">5</span>
+            (<span data-target="ssc-star-rating-count">3</span>)
+        </p>
+    
+        <p class="ssc-star-rating__login-notice">
+        <a href="/wp-login.php?redirect_to=https://www.sqlservercentral.com/articles/loading-data-in-azure-synapse-using-copy">Log in</a> or <a href="/wp-login.php?action=register">register</a> to rate
+    </p>
+</div>
+
+                <p class="spaced-bottom--none"><span itemprop="dateCreated">2020-07-13</span></p>
+                                    <p class="spaced-bottom--none">8,511 reads</p>
+                                <ul class="list--bare list--horizontal spaced-bottom--none">
+                    <li class="spaced-right--tight"><a href="https://www.sqlservercentral.com/forums/topic/loading-data-in-azure-synapse-using-copy">Discuss</a></li>
+                </ul>
+            </div>
+            
+</article>
+
+<!-- / template-parts/ssc-related-content-list-item.php -->
+    </div>
+</div>
+<!-- / template-parts/ssc-related-content-list.php -->
+
+<!-- FOOTER -->
+<footer>
+    <div class="band background-color--blue--9 color--white footer__graphs">
+        <div class="band__inner-container band__inner-container--tight grid">
+            <a href="https://monitor.red-gate.com/overviews/SQLMON-EC2-BM2/cluster/sscdbcluster.ssc.local/sql/ssc-db-n1%5C(local)" target="_blank" rel="noopener" class="flex" title="Take a peek into our servers">
+                <div class="grid__col grid__col--span-2-of-12 grid__col--span-12-of-12--medium flex flex-align--center">
+                    <img src="https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/images/header/ssc-logo.svg" alt="" class="logo">
+                    <img src="https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/images/header/ssc.svg" alt="" class="logo">
+                </div>
+                <div class="grid__col grid__col--span-2-of-12 grid__col--span-3-of-12--medium">
+                    <div class="padded-h--tight">
+                        <p class="zeta color--white spaced-bottom--none">CPU</p>
+                        <script>var cpuChartData = {"labels":[1626014401053,1626014897052,1626015393258,1626015890239,1626016400659,1626016897675,1626017393364,1626017889005,1626018399379,1626018888455,1626019399250,1626019897483,1626020393935,1626020889280,1626021388394,1626021884877,1626022395389,1626022892507,1626023390176,1626023885451,1626024380796,1626024892544,1626025387886,1626025884182,1626026380315,1626026890639,1626027381904,1626027879914,1626028376174,1626028886615,1626029382709,1626029878584,1626030378679,1626030876420,1626031372111,1626031883523,1626032379716,1626032877812,1626033373141,1626033868454,1626034378956,1626034878513,1626035378161,1626035873843,1626036369602,1626036866182,1626037376636,1626037873200,1626038368823,1626038864453,1626039374562,1626039870849,1626040366180,1626040861414,1626041371893,1626041868055,1626042363760,1626042859322,1626043369777,1626043865779,1626044361217,1626044857500,1626045368283,1626045864084,1626046359461,1626046854550,1626047365816,1626047862434,1626048358233,1626048854189,1626049349993,1626049861147,1626050358077,1626050854433,1626051350175,1626051860601,1626052356860,1626052853130,1626053348718,1626053844905,1626054355903,1626054852152,1626055351558,1626055848393,1626056344190,1626056854408,1626057352155,1626057847505,1626058343081,1626058838728,1626059349209,1626059848349,1626060344800,1626060840113,1626061338966,1626061835580,1626062346415,1626062841822,1626063337378,1626063834784,1626064332035,1626064843677,1626065331501,1626065843238,1626066339924,1626066836334,1626067335266,1626067831671,1626068328125,1626068838920,1626069335440,1626069835535,1626070330691,1626070826190,1626071322372,1626071832807,1626072328037,1626072823618,1626073321091,1626073816791,1626074327179,1626074822379,1626075321053,1626075819233,1626076330723,1626076827192,1626077323458,1626077821261,1626078316552,1626078827438,1626079324050,1626079819282,1626080314812,1626080825340,1626081321809,1626081816966,1626082313672,1626082810041,1626083321357,1626083817526,1626084312793,1626084808344,1626085319606,1626085814980,1626086312308,1626086811247,1626087307513,1626087803554,1626088314773,1626088810159,1626089306773,1626089804304,1626090303332,1626090801427,1626091297818,1626091808241,1626092304957,1626092800460,1626093297731,1626093808276,1626094304158,1626094800270,1626095296145,1626095806832,1626096304142,1626096799380,1626097298209,1626097794256,1626098289472,1626098800105,1626099295252,1626099790722,1626100301263,1626100788753],"dataSets":[{"label":"","data":[7.901651007474468,5.438437923914229,9.137307781127785,6.155527763769426,6.2356766965461246,5.335748149458606,5.1092835289895655,10.699520948200211,6.432946475289855,9.548845815484269,6.416541603969564,6.713575628168471,6.785254268367575,5.214959710401879,8.056854922372606,9.778154046209645,6.922431629416437,8.20982321102624,7.548082028881721,5.968511368078154,10.341198379686569,7.303782819868239,9.739950215223079,13.21507407129508,7.146689938850202,4.7361854905258856,5.622841039341792,5.256471723842009,6.802048942776224,8.866799020920633,7.301180808862955,11.347904706885252,6.68232161970397,5.970730756671995,4.433516572504289,5.836705433485568,5.754759078831463,6.81932098963227,5.7005254387769435,5.4171848609365,6.334534168440882,9.065049216202407,7.4286721182653395,10.337718655130862,7.935275457587229,3.7239105203937126,9.603885134415883,6.880880939449948,8.86944016318565,5.900391878279806,8.078079428510074,6.738719940806871,6.782871315817886,6.825213726779557,5.153320268390694,4.355698424415409,5.004711407053959,6.704036052151357,7.773011400298277,6.583902998427137,4.733024213225852,8.416075773598733,6.069116902484994,5.4374674995331285,7.72178011573168,7.204351309352639,9.406801693675304,7.710352479136476,9.091238652991295,6.88379140358195,4.169762051799358,6.455974521103011,5.866099970982352,8.857125063700423,10.660325826457402,5.930239564633757,6.194797030671553,5.1654789157399374,7.152576859583201,6.028781799149304,5.9526565001207645,4.85753809181713,6.30201368008129,7.5631157427333795,5.800715731177728,8.325563515838077,8.637750412453093,7.5329460358371225,9.440169111112711,8.231424838793295,6.385673600138493,6.12889810855379,5.165578153568185,5.727116074044469,9.077073081592193,6.662706063325674,5.327902962229966,8.914691339029734,6.985530473048576,8.249826505713727,10.569833198640206,9.449139626288448,9.02884673514961,9.381344733056663,22.945059554934502,18.474844763072667,21.106798416325525,21.322423664364432,27.173995605614554,8.130711292560381,11.673430872714961,8.580786447910892,9.308534783048541,14.47090795909196,15.615726212143757,16.202100860445945,19.590407385944513,14.398332181604811,11.311869588989563,9.603682172160424,12.660004913901895,10.617168520909024,13.309116024686249,15.88087206680422,11.106098883773228,14.285653677688565,6.907842483618987,12.769780605694118,14.634705605723628,12.242429157065908,11.345233486315665,12.893277016067076,12.850416866886686,8.360292714775804,8.925545860955234,9.31639704329418,6.323308819735382,7.626868179684224,9.714513678931938,12.753967763937569,8.700321805697362,11.338384278700584,15.866069372835637,9.458606127825647,13.331421453079182,12.604872453633478,14.897566490212983,12.369824333067026,12.5271077941292,11.334686206498368,6.949005405418532,10.6522111019907,9.825351835937475,12.27880798030867,15.255830010908658,21.927270654468657,11.86149705167666,9.410032419292499,14.340756859109801,10.057820432586881,14.055197539945317,11.368471384184984,12.628021801604824,6.864983411565858,8.260458361477513,11.971057891193057,14.391101403396572,10.34546411313392,11.759001380708423,11.750120628109215,7.201934143284612,10.147011136776397,12.525399440271768,13.319586708865963],"colour":"42, 94, 157"}],"chart":"cpu"};</script><div
+        id="chart--cpu"
+        height="66"
+        class="js-chart"
+        data-chart-type="line"
+        data-chart-source="cpuChartData"
+        data-chart-colour-opacity="1"
+        data-chart-vertical-gridlines="false"
+        data-chart-horizontal-gridlines="false"
+        data-chart-legend="false"
+        data-chart-horizontal-axis="false"
+        data-chart-vertical-axis="false"
+        data-chart-animation="false"
+        data-chart-point-radius="0"
+        data-chart-tooltips="false"
+    ></div>                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-2-of-12 grid__col--span-3-of-12--medium">
+                    <div class="padded-h--tight">
+                        <p class="zeta color--white spaced-bottom--none">Memory</p>
+                        <script>var memoryChartData = {"labels":[1626013903501,1626014401048,1626014897048,1626015393253,1626015890233,1626016400654,1626016897670,1626017393355,1626017889000,1626018399374,1626018888449,1626019399245,1626019897478,1626020393930,1626020889274,1626021388389,1626021884868,1626022395384,1626022892502,1626023390171,1626023885446,1626024380790,1626024892539,1626025387881,1626025884153,1626026380300,1626026890634,1626027381899,1626027879909,1626028376165,1626028886609,1626029382703,1626029878579,1626030378674,1626030876414,1626031372107,1626031883504,1626032379711,1626032877784,1626033373135,1626033868449,1626034378951,1626034878508,1626035378156,1626035873813,1626036369597,1626036866177,1626037376631,1626037873195,1626038368817,1626038864448,1626039374558,1626039870840,1626040366174,1626040861408,1626041371888,1626041868050,1626042363755,1626042859317,1626043369772,1626043865773,1626044361212,1626044857496,1626045368279,1626045864079,1626046359452,1626046854542,1626047365811,1626047862429,1626048358228,1626048854184,1626049349987,1626049861142,1626050358072,1626050854428,1626051350170,1626051860597,1626052356850,1626052853126,1626053348713,1626053844900,1626054355899,1626054852147,1626055351553,1626055848387,1626056344185,1626056854403,1626057352145,1626057847500,1626058343072,1626058838723,1626059349204,1626059848344,1626060344795,1626060840109,1626061338961,1626061835575,1626062346410,1626062841813,1626063337373,1626063834779,1626064332031,1626064843671,1626065331496,1626065843233,1626066339919,1626066836328,1626067335261,1626067831656,1626068328120,1626068838915,1626069335435,1626069835530,1626070330686,1626070826185,1626071322366,1626071832779,1626072328029,1626072823611,1626073321083,1626073816786,1626074327174,1626074822374,1626075321049,1626075819223,1626076330719,1626076827185,1626077323453,1626077821256,1626078316547,1626078827409,1626079324046,1626079819276,1626080314808,1626080825335,1626081321804,1626081816961,1626082313666,1626082810036,1626083321352,1626083817498,1626084312788,1626084808340,1626085319578,1626085814975,1626086312303,1626086811237,1626087307508,1626087803549,1626088314769,1626088810154,1626089306768,1626089804300,1626090303327,1626090801423,1626091297813,1626091808213,1626092304952,1626092800455,1626093297723,1626093808271,1626094304154,1626094800265,1626095296140,1626095806827,1626096304136,1626096799374,1626097298202,1626097794251,1626098289467,1626098800069,1626099295247,1626099790717,1626100301256,1626100788748],"dataSets":[{"label":"","data":[53577678848,53572714496,53568282624,53570117632,53561729024,53554462720,53577572352,53579751424,53576343552,53577441280,53564530688,53571387392,53575909376,53578702848,53579776000,53583298560,53576351744,53579644928,53573828608,53562212352,53583945728,53584060416,53577949184,53569863680,53573427200,53568978944,53583601664,53592227840,53582503936,53588467712,53591072768,53587951616,53583454208,53580865536,53590654976,53583527936,53586485248,53586477056,53583994880,53589843968,53590548480,53587558400,53585911808,53579816960,53573001216,53575139328,53585305600,53591040000,53588590592,53595209728,53597872128,53592965120,53590515712,53588803584,53592547328,53592391680,53593096192,53595176960,53594701824,53598937088,53598953472,53598150656,53598003200,53596528640,53595996160,53598183424,53587058688,53598150656,53597347840,53596758016,53594578944,53596061696,53596979200,53596389376,53593554944,53599944704,53591023616,53593956352,53590368256,53597372416,53599641600,53599690752,53595217920,53599969280,53599993856,53599125504,53600051200,53591998464,53596962816,53596086272,53591482368,53588156416,53594619904,53595701248,53589893120,53589352448,53589458944,53588041728,53581299712,53578080256,53589245952,53590335488,53587468288,53585313792,53589581824,53623160832,53686624256,53670445056,53679611904,53641052160,53630689280,53623078912,53615656960,53617991680,53616279552,53619294208,53613731840,53614977024,53612789760,53616467968,53607948288,53604925440,53607587840,53601411072,53605302272,53612961792,53619752960,53611577344,53607776256,53601427456,53604048896,53599272960,53596250112,53604065280,53598224384,53591728128,53597151232,53598904320,53595373568,53596741632,53595267072,53589188608,53588795392,53593948160,53592268800,53592186880,53594144768,53592776704,53586960384,53585469440,53581914112,53592006656,53592137728,53588697088,53587927040,53592489984,53579898880,53579235328,53583609856,53586206720,53583929344,53583003648,53589762048,53585707008,53583486976,53582888960,53575860224,53576761344,53579603968,53580726272,53580029952,53576302592,53572608000,53567348736,53559623680],"colour":"42, 94, 157"}],"chart":"memory"};</script><div
+        id="chart--memory"
+        height="66"
+        class="js-chart"
+        data-chart-type="line"
+        data-chart-source="memoryChartData"
+        data-chart-colour-opacity="1"
+        data-chart-vertical-gridlines="false"
+        data-chart-horizontal-gridlines="false"
+        data-chart-legend="false"
+        data-chart-horizontal-axis="false"
+        data-chart-vertical-axis="false"
+        data-chart-animation="false"
+        data-chart-point-radius="0"
+        data-chart-tooltips="false"
+    ></div>                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-2-of-12 grid__col--span-3-of-12--medium">
+                    <div class="padded-h--tight">
+                        <p class="zeta color--white spaced-bottom--none">Disk I/O</p>
+                        <script>var diskChartData = {"labels":[1626014383427,1626014895271,1626015375999,1626015888832,1626016399956,1626016880164,1626017390284,1626017901842,1626018382562,1626018897407,1626019377499,1626019888452,1626020399148,1626020879326,1626021394145,1626021874309,1626022384450,1626022894888,1626023375250,1626023885356,1626024365479,1626024875573,1626025385806,1626025865946,1626026376586,1626026888524,1626027373174,1626027886900,1626028367085,1626028877996,1626029358903,1626029869847,1626030380554,1626030861773,1626031372184,1626031882762,1626032363717,1626032875467,1626033355718,1626033866001,1626034377596,1626034858691,1626035369583,1626035879616,1626036359633,1626036869681,1626037349776,1626037859855,1626038370857,1626038851280,1626039361548,1626039871783,1626040352362,1626040862395,1626041373350,1626041854444,1626042365556,1626042845931,1626043356214,1626043866732,1626044346810,1626044856890,1626045368064,1626045848143,1626046358286,1626046838733,1626047348808,1626047859179,1626048339322,1626048849471,1626049359692,1626049839898,1626050351530,1626050861761,1626051342017,1626051852539,1626052332665,1626052843339,1626053353453,1626053834778,1626054346278,1626054856415,1626055337448,1626055848112,1626056328203,1626056838286,1626057348943,1626057829114,1626058339592,1626058849916,1626059330599,1626059841954,1626060322050,1626060832145,1626061319951,1626061830107,1626062341239,1626062821456,1626063332550,1626063843199,1626064323346,1626064836534,1626065317876,1626065828454,1626066339824,1626066819953,1626067331624,1626067811841,1626068322559,1626068833247,1626069314011,1626069824229,1626070334448,1626070816134,1626071326573,1626071808069,1626072319523,1626072830897,1626073311162,1626073821271,1626074331334,1626074811472,1626075323020,1626075803659,1626076314628,1626076826877,1626077306986,1626077817376,1626078300282,1626078810380,1626079321532,1626079802155,1626080312796,1626080822920,1626081302998,1626081813403,1626082323498,1626082804543,1626083315262,1626083795823,1626084306402,1626084816932,1626085297714,1626085807728,1626086290072,1626086801274,1626087311634,1626087792180,1626088303742,1626088813851,1626089294476,1626089804632,1626090285007,1626090797693,1626091308755,1626091789068,1626092299176,1626092809802,1626093290363,1626093801051,1626094281264,1626094791316,1626095302940,1626095783035,1626096293580,1626096804535,1626097285643,1626097796440,1626098278063,1626098789799,1626099299908,1626099781519,1626100291657,1626100774642],"dataSets":[{"label":"","data":[6167664.22048549,3575662.1148950965,4475065.005166206,3898090.550212155,4141705.57050558,3182672.0388012356,3017739.2852008664,3601399.7557075312,4758352.1035656305,4085672.8739623097,6621066.974942379,3846626.258481431,5965411.622829863,3136560.0254208837,8707115.878130231,7043261.922648496,3483241.5904894844,6218998.113953649,4277352.983346848,3592860.173430709,5754246.162532448,3862213.773448119,6524784.311660262,6535815.010846507,5511294.690839982,3819522.3192745494,3944496.234713278,4787452.0982729625,3696612.3292470737,3415269.608276288,3199407.743693377,10127596.265614096,4047238.0435647406,6064550.372800865,3269621.688642678,3649793.8664577864,3417209.093840321,6141107.534114366,3104817.957441616,2981301.3727292335,8510521.840837454,3455618.771156782,8093747.87765849,4655903.144181706,9309157.265150497,3513792.2075167517,3922099.665272181,3590625.9180688867,10977900.458521718,6719962.548170343,6330350.792119628,3225091.668626804,8522177.26852111,3507538.4296653494,3505620.2931575505,3480615.987799995,8354579.254810452,7996297.289843151,7855269.5463792,3341650.954507921,3222605.430541928,3746099.2930534612,3834596.6787971957,2833092.557667245,3990310.277535298,4813931.31234523,3399527.6157601653,2735037.7823193637,5289498.25721465,3598931.169307168,3270557.0111598605,9055494.672339968,3128954.5916475104,3435879.142600937,5719045.201246655,2758702.559129403,5424810.581624613,2366871.5829410087,3357115.607496894,11895868.36642683,3471561.7613776308,3773096.168010012,4430224.221463204,5658911.027285278,2567705.7717459206,4427366.619812274,3115820.4354621666,5228560.646601988,3571907.6419697795,3952914.812977508,3587863.355140169,2746800.5615441394,5081967.599888613,3128488.2122691046,3431364.283740297,5457834.597889772,3886484.1000115643,4543393.827015922,5559850.9007371515,2651474.4861200815,8234255.786529863,5059730.141113654,3441025.834496539,5518555.3651374765,45863507.116635956,84529481.67569032,102349956.47205934,59720356.773302555,33396378.32350643,8294126.896609748,10855392.257459266,5767649.271126689,30233873.468462132,39030639.034644894,42156201.457128026,48932975.694423325,40798091.90664191,31852946.87676008,36326835.39967559,29771407.839471385,21045739.04131327,3522586.715038786,5471600.025592385,4133214.7450512024,3616408.46985867,4710566.087870433,13195184.632736234,8300588.294780252,3435279.2522613397,3532929.7174392943,3314259.7355022067,5435011.566493962,4434678.446975791,3014235.662231505,4081871.093396154,3999253.247570003,3833364.3253093795,4486905.6480474565,3601382.4274367923,4374922.596257996,3960818.6368552414,5891445.331557427,3513197.5992573495,4542482.066866231,6979327.215597267,8280294.793620836,2881527.6809927667,3693071.2080782647,6411121.856114943,3432932.6139233415,3375735.5750692887,3028122.132469836,3460211.0962361936,4164882.3334339624,3113961.2663844423,5984612.643275565,5610193.272964111,3568228.009443954,4330910.584575903,4251751.05197251,4181157.4806023547,5516916.567440107,4209692.340902896,2708322.788697577,5100029.737812742,5112226.015710566,5398964.8470422365,6827895.775906429,6444066.874815036,7935186.891554171,5678637.312964254,5466587.86896999,3587007.2518785526,4181416.804965742],"colour":"42, 94, 157"}],"chart":"disk"};</script><div
+        id="chart--disk"
+        height="66"
+        class="js-chart"
+        data-chart-type="line"
+        data-chart-source="diskChartData"
+        data-chart-colour-opacity="1"
+        data-chart-vertical-gridlines="false"
+        data-chart-horizontal-gridlines="false"
+        data-chart-legend="false"
+        data-chart-horizontal-axis="false"
+        data-chart-vertical-axis="false"
+        data-chart-animation="false"
+        data-chart-point-radius="0"
+        data-chart-tooltips="false"
+    ></div>                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-2-of-12 grid__col--span-3-of-12--medium">
+                    <div class="padded-h--tight">
+                        <p class="zeta color--white spaced-bottom--none">Waits</p>
+                        <script>var waitsChartData = {"labels":[1626014320243,1626014801043,1626015401230,1626015881197,1626016361227,1626016841320,1626017321307,1626017801950,1626018281997,1626018881947,1626019365307,1626019842167,1626020322713,1626020802807,1626021283027,1626021882837,1626022362887,1626022843103,1626023322917,1626023803010,1626024283090,1626024883197,1626025363463,1626025843287,1626026323060,1626026803213,1626027283700,1626027884307,1626028364667,1626028844310,1626029324327,1626029804780,1626030287980,1626030767890,1626031368247,1626031849073,1626032329013,1626032809497,1626033289750,1626033769390,1626034369260,1626034850670,1626035330763,1626035810903,1626036290653,1626036770547,1626037370870,1626037851260,1626038331280,1626038811263,1626039291513,1626039771313,1626040371357,1626040851607,1626041331343,1626041811343,1626042291377,1626042771470,1626043251363,1626043851830,1626044332253,1626044811873,1626045291780,1626045771830,1626046251940,1626046851983,1626047332140,1626047812313,1626048291407,1626048772237,1626049252500,1626049852483,1626050332470,1626050812533,1626051292660,1626051772680,1626052252797,1626052852980,1626053334993,1626053812853,1626054292807,1626054772823,1626055253013,1626055853000,1626056332890,1626056813110,1626057293080,1626057773237,1626058253910,1626058733190,1626059333593,1626059814393,1626060293800,1626060773957,1626061257690,1626061737740,1626062338550,1626062819097,1626063299363,1626063779380,1626064259503,1626064752253,1626065342800,1626065822973,1626066303363,1626066783003,1626067263100,1626067743630,1626068223960,1626068823033,1626069303100,1626069783160,1626070263380,1626070743617,1626071224583,1626071824660,1626072304630,1626072784910,1626073280473,1626073744867,1626074224663,1626074824520,1626075305037,1626075784587,1626076264697,1626076745540,1626077225430,1626077825583,1626078305537,1626078786337,1626079268727,1626079746417,1626080226277,1626080707073,1626081307130,1626081787430,1626082267197,1626082747307,1626083228527,1626083714713,1626084308663,1626084788650,1626085269290,1626085749337,1626086229620,1626086709700,1626087309523,1626087790460,1626088269587,1626088749683,1626089229653,1626089709653,1626090309900,1626090791950,1626091269887,1626091749840,1626092229747,1626092709750,1626093310027,1626093791107,1626094270107,1626094750047,1626095230047,1626095710297,1626096191737,1626096790187,1626097271373,1626097751487,1626098231347,1626098711300,1626099191610,1626099791797,1626100272000,1626100752410],"dataSets":[{"label":"","data":[57.52573711685964,28.044925124792012,30.81039742613552,18.092910554267274,29.18984230152282,19.04214391794923,6.108498771841737,66.17593515353391,30.003312175682797,73.47945662138511,30.30246607083747,25.026213144319087,42.48916857075077,15.782325961165938,38.8551080754654,89.7867658091729,35.5108842828872,30.607060156263014,31.98947925654524,26.87812569647964,61.70429928345277,26.681908393003248,85.79620460328235,84.74774083830738,29.976676469913894,39.93310465622417,29.561673885037475,30.888750880359368,26.679990007494375,47.7751160759148,35.617488547280615,79.6727255319459,47.036423841059616,41.84326227834385,17.014876148691528,12.453569482515505,20.956786264949784,48.415764104527945,40.18090464817502,21.318071887248774,33.6139496890993,45.526682038179516,60.35913875020048,74.60324072145625,77.5007816571131,5.826286638299291,52.19023758876473,31.347446866087974,54.28315486854715,40.3326784490284,83.80635085892763,55.7002917882451,52.387824892841195,26.205101509630403,14.801891040072041,10.697916666666666,25.35445405950412,26.734403542646948,59.78832781474204,31.042505250080357,5.903131198964245,55.083190859430374,29.853700821200775,14.117279450057286,40.84272354252151,51.714627118389856,49.60252584050634,25.540794671920327,24.475363916058225,48.59513757461057,17.342581044136235,36.01268702613241,20.431803361341036,34.28300035620325,53.67121615739169,36.356818465897256,39.10088582574664,14.807150485768508,36.8745241310919,85.4371573264136,25.767052675881445,19.186860437985402,60.0012495054041,56.76956334053906,17.093500593886098,36.3395943525884,55.66597912369523,47.85518070131228,78.49827221416639,36.796861959606076,29.358614130842117,13.945507487520796,29.822259583193404,27.90962122805666,45.597468024716115,20.16039995833767,37.53266423661391,76.94980927984152,82.22943119021541,135.05771670586668,85.9862993441264,74.99340436326737,47.144427115877306,73.66719911365279,235.93746747434378,69.82528563088984,92.64586114889285,77.53730256175473,381.0442820560865,52.09882601953352,65.59501069642363,19.897512810898636,101.78876348340344,294.8814855998184,401.45873097058836,313.07148915889127,595.593474592162,200.69959190472227,146.665509733374,100.05081891669573,479.8414326088588,81.93786185707594,127.46687422089124,138.30674590762175,81.45841577971714,97.68885062276043,133.68897038904746,141.009042694113,138.77579934743747,99.84400998336105,72.99902568461205,227.09497791454712,161.81386237652646,20.775963194369336,75.45449848931018,43.4436810326879,23.06744732338823,35.35439795046968,41.922613357715804,86.02057648718802,75.94915396918931,62.91420392635633,1028.8427929427432,66.53306863702929,155.30426852501546,113.610231628062,156.50783647842783,75.5130089803862,122.38300074927943,81.82321868959541,35.60222513907118,88.66875,65.32644061528005,57.73052587905819,74.79437666470687,478.7927151200222,76.41688910559755,54.64340847869701,113.63587143935214,79.15523405670575,84.43841336116907,67.46259949160311,162.9875,49.13482561166058,42.78414755732802,96.98721697719108,151.3136292410835,36.66837459436717,112.51198266160964,93.9717013957617,31.95228081863796,77.95903610041537,123.13125907168428,122.3788014404363],"colour":"42, 94, 157"}],"chart":"waits"};</script><div
+        id="chart--waits"
+        height="66"
+        class="js-chart"
+        data-chart-type="line"
+        data-chart-source="waitsChartData"
+        data-chart-colour-opacity="1"
+        data-chart-vertical-gridlines="false"
+        data-chart-horizontal-gridlines="false"
+        data-chart-legend="false"
+        data-chart-horizontal-axis="false"
+        data-chart-vertical-axis="false"
+        data-chart-animation="false"
+        data-chart-point-radius="0"
+        data-chart-tooltips="false"
+    ></div>                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-2-of-12 grid__col--span-12-of-12--medium text--right flex flex-align--center flex-justify--end">Take a peek into our servers</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="band background-color--blue--8 color--white footer__menu">
+        <div class="band__inner-container padded-v--loose padded-h--tight grid flex">
+            <div class="grid__col grid__col--span-9-of-12 grid__col--span-12-of-12--medium flex flex-align--center">
+                <ul id="menu-footer-menu" class="list--horizontal spaced-bottom--none"><li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-22 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/about">About SQLServerCentral</a></li>
+<li id="menu-item-3673197" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-3673197 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/contact-us">Contact Us</a></li>
+<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-24 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/terms">Terms of Use</a></li>
+<li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-26 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/privacy">Privacy Policy</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-28 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/contribute">Contribute</a></li>
+<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-30 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/contributors">Contributors</a></li>
+<li id="menu-item-3425913" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-3425913 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/author">Authors</a></li>
+<li id="menu-item-3426090" class="menu-item menu-item-type-post_type menu-item-object-page spaced-bottom--none spaced-right menu-item-3426090 spaced-bottom--none spaced-right--tight"><a href="https://www.sqlservercentral.com/newsletter-archive">Newsletters</a></li>
+</ul>            </div>
+
+            <div class="grid__col grid__col--span-2-of-12 grid__col--push-1-of-12 grid__col--span-12-of-12--medium grid__col--push-0-of-12--medium flex flex-align--center flex-justify--end">
+                <a href="https://www.red-gate.com/" target="_blank" class="link-image"><img src="https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/images/footer/redgate.svg" alt=""/></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- / FOOTER -->
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ssc_utilities_ajax_combined_data = {"ajax_url":"https:\/\/www.sqlservercentral.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-utilities/js/ajax-combined.min.js?ver=2021-03-04'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-performance/js/ssc-lazy-load.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ssc_related_forum_topics_top_comments_data = {"ajax_url":"https:\/\/www.sqlservercentral.com\/wp-admin\/admin-ajax.php","post_id":"3892892"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-related-forum-topics/js/top-comments.min.js?ver=2021-03-04'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ssc_star_ratings_data = {"ajax_url":"https:\/\/www.sqlservercentral.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-star-ratings/js/interactive.min.js?ver=2021-03-04'></script>
+<script type='text/javascript' defer src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&#038;lang=vb'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-syntax-highlighting/inc/lexers/lang-vs.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ssc_visitor_counter_data = {"ajax_url":"https:\/\/www.sqlservercentral.com\/wp-admin\/admin-ajax.php","post_id":"3892892","is_singular":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/mu-plugins/ssc/ssc-visitor-counter/js/ssc-visitor-counter.min.js?ver=2021-03-04'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/plugins/bbpress/templates/default/js/editor.js?ver=2.5.14-6684'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var SSC2018 = {"templateUrl":"https:\/\/www.sqlservercentral.com\/wp-content\/themes\/ssc-twentyeighteen"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/themes/ssc-twentyeighteen/js/sqlservercentral.min.js?ver=2021-03-04'></script>
+<script type='text/javascript' defer src='https://www.sqlservercentral.com/wp-content/plugins/gd-bbpress-attachments/js/front.js?ver=3.1_b2302_free'></script>
+<script type='text/javascript' src='https://www.sqlservercentral.com/wp-includes/js/wp-embed.min.js?ver=5.1.1'></script>
+
+</body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using redis 
+
+Served from: sqlservercentral.com @ 2021-07-12 18:52:04 by W3 Total Cache
+-->
